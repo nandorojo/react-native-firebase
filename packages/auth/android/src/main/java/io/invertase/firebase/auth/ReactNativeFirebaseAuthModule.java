@@ -1561,9 +1561,14 @@ class ReactNativeFirebaseAuthModule extends ReactNativeFirebaseModule {
   @ReactMethod
   public void useEmulator(String appName, String host, int port) {
     Log.d(TAG, "useEmulator");
+    Log.d(TAG, "useEmulator temp log - appName: " + appName);
     FirebaseApp firebaseApp = FirebaseApp.getInstance(appName);
     FirebaseAuth firebaseAuth = FirebaseAuth.getInstance(firebaseApp);
+    Log.d(TAG, "useEmulator temp log - host: " + host);
+    Log.d(TAG, "useEmulator temp log - port: " + port);
     firebaseAuth.useEmulator(host, port);
+    try { Thread.currentThread().sleep(5000); } catch (Exception e) { /* ignore interruptions */ }
+    Log.d(TAG, "useEmulator temp log - after call and sleep, so, no exception...");
   }
 
   /* ------------------

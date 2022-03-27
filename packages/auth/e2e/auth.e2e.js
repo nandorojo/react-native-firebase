@@ -15,7 +15,7 @@
  *
  */
 
-const TEST_EMAIL = 'test@example.com';
+const TEST_EMAIL = 'rnfbtest20220327@example.com';
 const TEST_PASS = 'test1234';
 
 const DISABLED_EMAIL = 'disabled@example.com';
@@ -23,7 +23,7 @@ const DISABLED_PASS = 'test1234';
 
 const { clearAllUsers, disableUser, getLastOob, resetPassword } = require('./helpers');
 
-describe('auth()', function () {
+describe.only('auth()', function () {
   before(async function () {
     await clearAllUsers();
     await firebase.auth().createUserWithEmailAndPassword(TEST_EMAIL, TEST_PASS);
